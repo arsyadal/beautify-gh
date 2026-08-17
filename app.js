@@ -22,6 +22,7 @@ const availableSkills = [
 ];
 
 const gifPresets = [
+  { id: 'gojo', label: '🤞 Gojo Satoru (JJK)', url: 'https://media.giphy.com/media/DGsDLr9nyz2LkVgKFs/giphy.gif' },
   { id: 'lofigirl', label: '🌸 Lofi Study Girl', url: 'https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif' },
   { id: 'headphones', label: '🎧 Music Anime Girl', url: 'https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif' },
   { id: 'citylights', label: '🌃 City Lights Girl', url: 'https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif' },
