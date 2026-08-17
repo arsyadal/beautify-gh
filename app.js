@@ -179,14 +179,20 @@ function renderMarkdown() {
     md += `### 📊 GitHub Analytics\n\n`;
     md += `<div align="center">\n`;
     md += `  <picture>\n`;
-    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />\n`;
-    md += `    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=default&hide_border=true&count_private=true" />\n`;
-    md += `    <img src="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&hide_border=true" alt="GitHub Stats" />\n`;
+    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=${username}&theme=tokyonight&hide_border=true" />\n`;
+    md += `    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=${username}&theme=default&hide_border=true" />\n`;
+    md += `    <img src="https://streak-stats.demolab.com/?user=${username}&hide_border=true" alt="Streak Stats" />\n`;
+    md += `  </picture>\n`;
+    md += `  <br/><br/>\n`;
+    md += `  <picture>\n`;
+    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />\n`;
+    md += `    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&theme=default&hide_border=true&count_private=true" />\n`;
+    md += `    <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&hide_border=true" alt="GitHub Stats" />\n`;
     md += `  </picture>\n`;
     md += `  <picture>\n`;
-    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=tokyonight&hide_border=true" />\n`;
-    md += `    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=default&hide_border=true" />\n`;
-    md += `    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&hide_border=true" alt="Top Languages" />\n`;
+    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=tokyonight&hide_border=true" />\n`;
+    md += `    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=default&hide_border=true" />\n`;
+    md += `    <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&hide_border=true" alt="Top Languages" />\n`;
     md += `  </picture>\n`;
     md += `</div>\n\n---\n\n`;
   }
