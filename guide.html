@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Toolkit Guide & Documentation — BeautifyGH ✨</title>
+  <meta name="description" content="Complete documentation and guide for BeautifyGH: Templates, GitHub Actions automations, and modern best practices." />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content="https://arsyadal.github.io/beautify-gh/guide.html" />
+  <meta property="og:title" content="Toolkit Guide & Documentation — BeautifyGH ✨" />
+  <meta property="og:description" content="Step-by-step documentation, curated components, and zero-bug automations for GitHub profiles." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/arsyadal/beautify-gh/main/assets/og-preview.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css" />
+  <style>
+    .guide-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    @media (max-width: 860px) {
+      .guide-layout {
+        grid-template-columns: 1fr;
+      }
+      .guide-sidebar {
+        display: none;
+      }
+    }
+    .guide-sidebar {
+      position: sticky;
+      top: 5rem;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+    }
+    .sidebar-title {
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+    .sidebar-menu {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+    .sidebar-menu a {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      padding: 0.35rem 0.6rem;
+      border-radius: 4px;
+      transition: all 0.15s;
+    }
+    .sidebar-menu a:hover {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text-primary);
+    }
+    .guide-content {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem;
+    }
+    .guide-content h1 {
+      font-size: 2.2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .guide-content h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 2.2rem 0 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .guide-content h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 1.5rem 0 0.75rem;
+    }
+    .guide-content p, .guide-content li {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-secondary);
+      margin-bottom: 1rem;
+    }
+    .guide-content ol, .guide-content ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .guide-content blockquote {
+      border-left: 3px solid var(--accent);
+      padding-left: 1rem;
+      margin: 1.25rem 0;
+      color: #93c5fd;
+      font-style: italic;
+    }
+    .code-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      position: relative;
+    }
+    .code-box pre {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      color: #e5e7eb;
+      overflow-x: auto;
+    }
+    .code-box-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 0.5rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+    .copy-btn-sm {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .copy-btn-sm:hover {
+      color: #fff;
+      border-color: var(--border-hover);
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <a href="index.html" style="text-decoration: none; color: inherit; display: flex; align-items: center; gap: 0.5rem;">
+          <span class="logo-sparkle">✨</span>
+          <span class="logo-text">Beautify<strong>GH</strong></span>
+        </a>
+      </div>
+      <div class="nav-links">
+        <a href="index.html" class="nav-link">⚡ Profile Generator</a>
+        <a href="https://github.com/arsyadal/beautify-gh" target="_blank" class="nav-link">⭐ GitHub Repo</a>
+        <a href="https://github.com/arsyadal/arsyadal" target="_blank" class="nav-btn">Author Profile</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="hero-section">
+    <div class="container guide-layout">
+      <!-- SIDEBAR -->
+      <aside class="guide-sidebar">
+        <div class="sidebar-title">Documentation</div>
+        <ul class="sidebar-menu">
+          <li><a href="#quick-start">🚀 Quick Start</a></li>
+          <li><a href="#snake-animation">🐍 Snake Animation</a></li>
+          <li><a href="#adaptive-stats">📊 Adaptive Stats</a></li>
+          <li><a href="#tech-badges">🛠️ Tech Stack Badges</a></li>
+          <li><a href="#projects-table">🚀 Featured Projects</a></li>
+          <li><a href="#social-badges">🌐 Social Badges</a></li>
+          <li><a href="#blog-sync">✍️ Blog RSS Sync</a></li>
+          <li><a href="#philosophy">💡 The Craft Ethos</a></li>
+        </ul>
+      </aside>
+
+      <!-- MAIN CONTENT -->
+      <article class="guide-content">
+        <h1>🌟 BeautifyGH Toolkit Documentation</h1>
+        <p>A comprehensive, battle-tested guide to elevating your GitHub presence with adaptive Dark/Light components, high-signal project showcases, and zero-bug GitHub Actions automations.</p>
+
+        <hr style="border: none; border-top: 1px solid var(--border-color); margin: 2rem 0;" />
+
+        <h2 id="quick-start">🚀 Quick Start (60 Seconds Setup)</h2>
+        <ol>
+          <li>Create a new public repository on GitHub with the <strong>exact same name as your GitHub username</strong> (e.g. <code>https://github.com/username/username</code>).</li>
+          <li>Check the option <strong>Add a README file</strong>.</li>
+          <li>Use our interactive <a href="index.html" style="color: var(--accent);">Web Profile Generator</a> or copy code snippets below.</li>
+          <li>Add automated workflows to <code>.github/workflows/</code> to enable nightly snake animations.</li>
+        </ol>
+
+        <h2 id="snake-animation">1. 🐍 Snake Contribution Grid Animation</h2>
+        <p>An interactive animated snake eating through your GitHub contribution squares. Automatically switches between Dark and Light SVG outputs based on the visitor's system theme.</p>
+        
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>MARKDOWN SNIPPET</span>
+            <button class="copy-btn-sm" onclick="copySnippet(this)">Copy</button>
+          </div>
+          <pre><code>&lt;div align="center"&gt;
+  &lt;picture&gt;
+    &lt;source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/output/github-snake-dark.svg" /&gt;
+    &lt;source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/output/github-snake.svg" /&gt;
+    &lt;img alt="GitHub Contribution Snake" src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_USERNAME/output/github-snake.svg" width="100%" /&gt;
+  &lt;/picture&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 id="adaptive-stats">2. 📊 Adaptive GitHub Stats & Top Languages</h2>
+        <p>Real-time analytics cards powered by high-availability mirrors that automatically adapt to TokyoNight (Dark) or Default (Light) themes.</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>MARKDOWN SNIPPET</span>
+            <button class="copy-btn-sm" onclick="copySnippet(this)">Copy</button>
+          </div>
+          <pre><code>&lt;div align="center"&gt;
+  &lt;picture&gt;
+    &lt;source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=YOUR_USERNAME&theme=tokyonight&hide_border=true" /&gt;
+    &lt;source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=YOUR_USERNAME&theme=default&hide_border=true" /&gt;
+    &lt;img src="https://streak-stats.demolab.com/?user=YOUR_USERNAME&hide_border=true" alt="Streak Stats" /&gt;
+  &lt;/picture&gt;
+  &lt;br/&gt;&lt;br/&gt;
+  &lt;picture&gt;
+    &lt;source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" /&gt;
+    &lt;source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats-eight-theta.vercel.app/api?username=YOUR_USERNAME&show_icons=true&theme=default&hide_border=true&count_private=true" /&gt;
+    &lt;img src="https://github-readme-stats-eight-theta.vercel.app/api?username=YOUR_USERNAME&show_icons=true&hide_border=true" alt="GitHub Stats" /&gt;
+  &lt;/picture&gt;
+&lt;/div&gt;</code></pre>
+        </div>
+
+        <h2 id="tech-badges">3. 🛠️ Curated Tech Stack Badges</h2>
+        <p>Professionally grouped per architectural layer (Frontend, Backend, Databases, Cloud & DevOps) to eliminate badge clutter.</p>
+
+        <div class="code-box">
+          <div class="code-box-header">
+            <span>MARKDOWN SNIPPET</span>
+            <button class="copy-btn-sm" onclick="copySnippet(this)">Copy</button>
+          </div>
+          <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td align="center" width="140"&gt;&lt;b&gt;Frontend&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img src="https://skillicons.dev/icons?i=typescript,javascript,react,nextjs,vue,tailwind,html,css" alt="Frontend" /&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align="center" width="140"&gt;&lt;b&gt;Backend&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img src="https://skillicons.dev/icons?i=rust,go,nodejs,python,fastapi" alt="Backend" /&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td align="center" width="140"&gt;&lt;b&gt;Databases&lt;/b&gt;&lt;/td&gt;
+    &lt;td&gt;&lt;img src="https://skillicons.dev/icons?i=postgres,mongodb,redis,sqlite" alt="Databases" /&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+        </div>
+
+        <h2 id="philosophy">💡 The Philosophy: 30 Minutes Every Day for Your Craft</h2>
+        <blockquote>
+          "We are what we repeatedly do. Excellence, then, is not an act, but a habit." — Will Durant
+        </blockquote>
+        <p>Dedicating at least 30 minutes every day to sharpen your engineering skills outside daily work forms the foundation of true software craftsmanship. A beautiful GitHub profile celebrates this consistency and dedication.</p>
+
+        <div style="text-align: center; margin: 2rem 0;">
+          <img src="assets/craftsmanship-365.webp" alt="365 Days of Craft Contribution Graph" style="width: 100%; border-radius: 8px;" />
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <p><b>Make your GitHub profile beautiful</b> • Built with ❤️ for open-source developers.</p>
+    </div>
+  </footer>
+
+  <script>
+    function copySnippet(btn) {
+      const code = btn.closest('.code-box').querySelector('code').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.innerText = 'Copied!';
+        setTimeout(() => { btn.innerText = 'Copy'; }, 2000);
+      });
+    }
+  </script>
+</body>
+</html>
