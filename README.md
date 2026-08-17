@@ -1,9 +1,11 @@
 <div align="center">
 
+  <img src="assets/og-preview.jpg" alt="BeautifyGH Preview Banner" width="100%" style="border-radius: 12px; margin-bottom: 12px;" />
+
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,3,5&height=200&section=header&text=Make%20Ur%20GitHub%20Profile%20Beautiful%20✨&fontSize=38&fontAlignY=38&desc=The%20Modern%20Guide,%20Templates,%20and%20Automations%20for%20GitHub%20Profiles&descAlignY=58&descAlign=50&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=24,28,30&height=200&section=header&text=Make%20Ur%20GitHub%20Profile%20Beautiful%20✨&fontSize=38&fontAlignY=38&desc=The%20Modern%20Guide,%20Templates,%20and%20Automations%20for%20GitHub%20Profiles&descAlignY=58&descAlign=50&theme=light" />
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=Make%20Ur%20GitHub%20Profile%20Beautiful%20✨&fontSize=38" alt="Make Ur GitHub Profile Beautiful" width="100%" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,3,5&height=190&section=header&text=Make%20Ur%20GitHub%20Profile%20Beautiful%20✨&fontSize=38&fontAlignY=38&desc=The%20Modern%20Guide,%20Templates,%20and%20Automations%20for%20GitHub%20Profiles&descAlignY=58&descAlign=50&theme=dark" />
+    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=24,28,30&height=190&section=header&text=Make%20Ur%20GitHub%20Profile%20Beautiful%20✨&fontSize=38&fontAlignY=38&desc=The%20Modern%20Guide,%20Templates,%20and%20Automations%20for%20GitHub%20Profiles&descAlignY=58&descAlign=50&theme=light" />
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=190&section=header&text=Make%20Ur%20GitHub%20Profile%20Beautiful%20✨&fontSize=38" alt="Make Ur GitHub Profile Beautiful" width="100%" />
   </picture>
 
   <p align="center">
@@ -12,9 +14,14 @@
   </p>
 
   <p align="center">
+    <a href="https://arsyadal.github.io/beautify-gh/"><img src="https://img.shields.io/badge/⚡_Live_App-Open_Web_Generator-blue?style=for-the-badge&logo=safari&logoColor=white" alt="Live Web Generator" /></a>
+  </p>
+
+  <p align="center">
     <a href="templates/ultimate-profile.md"><img src="https://img.shields.io/badge/Ultimate%20Template-6--in--1%20Ready-success?style=flat-square" alt="Ultimate Template" /></a>
     <a href=".github/workflows/snake-contribution.yml"><img src="https://img.shields.io/badge/Workflows-GitHub%20Actions-blue?style=flat-square&logo=githubactions&logoColor=white" alt="Workflows" /></a>
     <a href="docs/dark-light-mode.md"><img src="https://img.shields.io/badge/Theme-Dark%20%26%20Light%20Adaptive-8A2BE2?style=flat-square" alt="Adaptive" /></a>
+    <a href="docs/custom-domain.md"><img src="https://img.shields.io/badge/Domain-Custom%20CNAME%20Ready-orange?style=flat-square" alt="Custom Domain" /></a>
     <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License" /></a>
   </p>
 

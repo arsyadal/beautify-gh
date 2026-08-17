@@ -5,6 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Make Ur GitHub Profile Beautiful ✨ — Interactive Profile Generator</title>
   <meta name="description" content="Generate beautiful, adaptive, recruiter-friendly GitHub Profile READMEs with live stats, snake animations, and tech badges in seconds." />
+
+  <!-- Open Graph / Facebook / LinkedIn -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://arsyadal.github.io/beautify-gh/" />
+  <meta property="og:title" content="Make Ur GitHub Profile Beautiful ✨ — Interactive Profile Generator" />
+  <meta property="og:description" content="The modern open-source toolkit, battle-tested templates, and zero-bug GitHub Actions to elevate your developer profile." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/arsyadal/beautify-gh/main/assets/og-preview.jpg" />
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://arsyadal.github.io/beautify-gh/" />
+  <meta property="twitter:title" content="Make Ur GitHub Profile Beautiful ✨ — Interactive Profile Generator" />
+  <meta property="twitter:description" content="The modern open-source toolkit, battle-tested templates, and zero-bug GitHub Actions to elevate your developer profile." />
+  <meta property="twitter:image" content="https://raw.githubusercontent.com/arsyadal/beautify-gh/main/assets/og-preview.jpg" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -18,8 +33,9 @@
         <span class="logo-text">Beautify<strong>GH</strong></span>
       </div>
       <div class="nav-links">
+        <a href="https://github.com/arsyadal/beautify-gh" target="_blank" class="nav-link">⭐ Star on GitHub</a>
         <a href="TOOLKIT_GUIDE.md" class="nav-link">Toolkit Guide</a>
-        <a href="https://github.com/arsyadal/arsyadal" target="_blank" class="nav-btn">GitHub Profile</a>
+        <a href="https://github.com/arsyadal/arsyadal" target="_blank" class="nav-btn">Author Profile</a>
       </div>
     </div>
   </header>
@@ -29,6 +45,17 @@
       <div class="badge-pill">🚀 Open Source GitHub Toolkit</div>
       <h1 class="hero-title">Make your GitHub profile <span class="gradient-text">beautiful</span>.</h1>
       <p class="hero-subtitle">Generate modern, Dark/Light adaptive, recruiter-friendly GitHub profile READMEs in seconds with zero-bug workflows.</p>
+    </div>
+
+    <!-- TEMPLATE SWITCHER BAR -->
+    <div class="container template-selector-container">
+      <label class="template-selector-label">Choose Layout Template:</label>
+      <div class="template-pills" id="template-pills">
+        <button type="button" class="template-pill active" data-template="ultimate">🌟 Ultimate 6-in-1</button>
+        <button type="button" class="template-pill" data-template="minimalist">✨ Modern Minimalist</button>
+        <button type="button" class="template-pill" data-template="fullstack">💻 Full-Stack Engineer</button>
+        <button type="button" class="template-pill" data-template="terminal">📟 Terminal / CLI</button>
+      </div>
     </div>
 
     <div class="container generator-grid">
@@ -105,13 +132,24 @@
       <!-- PREVIEW & CODE PANEL -->
       <div class="card preview-panel">
         <div class="preview-header">
-          <h2 class="section-title">📄 Generated README.md</h2>
+          <div class="preview-tabs">
+            <button type="button" class="tab-btn active" id="tab-visual">👁️ Live Preview</button>
+            <button type="button" class="tab-btn" id="tab-raw">📝 Raw Markdown</button>
+          </div>
           <button id="btn-copy" class="btn-primary">
             <span id="copy-text">📋 Copy Markdown</span>
           </button>
         </div>
 
-        <div class="code-wrapper">
+        <!-- VISUAL LIVE PREVIEW VIEW -->
+        <div id="view-visual" class="visual-preview-wrapper">
+          <div id="output-visual" class="github-readme-render">
+            <!-- Dynamically rendered GitHub profile preview -->
+          </div>
+        </div>
+
+        <!-- RAW CODE VIEW -->
+        <div id="view-raw" class="code-wrapper" style="display: none;">
           <pre><code id="output-markdown"></code></pre>
         </div>
       </div>

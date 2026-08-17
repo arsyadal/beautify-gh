@@ -29,6 +29,7 @@ const gifPresets = [
   { id: 'matrix', label: 'Cyber Matrix', url: 'https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif' }
 ];
 
+let currentTemplate = 'ultimate';
 let selectedSkills = ['rust', 'ts', 'react', 'nextjs', 'postgres', 'docker', 'linux'];
 let activeGifUrl = gifPresets[0].url;
 
@@ -47,7 +48,7 @@ function init() {
         selectedSkills.push(skill.id);
       }
       chip.classList.toggle('active');
-      renderMarkdown();
+      renderAll();
     };
     skillsContainer.appendChild(chip);
   });
@@ -67,7 +68,7 @@ function init() {
       card.classList.add('active');
       activeGifUrl = preset.url;
       document.getElementById('input-custom-gif').value = '';
-      renderMarkdown();
+      renderAll();
     };
     gifContainer.appendChild(card);
   });
@@ -82,12 +83,43 @@ function init() {
       activeGifUrl = gifPresets[0].url;
       document.querySelector('.gif-preset-card')?.classList.add('active');
     }
-    renderMarkdown();
+    renderAll();
+  });
+
+  // Template switchers
+  document.querySelectorAll('.template-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.template-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      currentTemplate = pill.getAttribute('data-template');
+      applyTemplateDefaults(currentTemplate);
+      renderAll();
+    });
+  });
+
+  // Tab switchers (Live Visual vs Raw Markdown)
+  const tabVisual = document.getElementById('tab-visual');
+  const tabRaw = document.getElementById('tab-raw');
+  const viewVisual = document.getElementById('view-visual');
+  const viewRaw = document.getElementById('view-raw');
+
+  tabVisual.addEventListener('click', () => {
+    tabVisual.classList.add('active');
+    tabRaw.classList.remove('active');
+    viewVisual.style.display = 'block';
+    viewRaw.style.display = 'none';
+  });
+
+  tabRaw.addEventListener('click', () => {
+    tabRaw.classList.add('active');
+    tabVisual.classList.remove('active');
+    viewRaw.style.display = 'block';
+    viewVisual.style.display = 'none';
   });
 
   // Attach input listeners
   ['input-username', 'input-name', 'input-headline', 'input-website'].forEach(id => {
-    document.getElementById(id).addEventListener('input', renderMarkdown);
+    document.getElementById(id).addEventListener('input', renderAll);
   });
 
   // Attach checkbox listeners
@@ -97,7 +129,7 @@ function init() {
       if (id === 'toggle-gif') {
         gifGroup.style.display = document.getElementById('toggle-gif').checked ? 'block' : 'none';
       }
-      renderMarkdown();
+      renderAll();
     });
   });
 
@@ -113,10 +145,47 @@ function init() {
     });
   });
 
-  renderMarkdown();
+  renderAll();
 }
 
-function renderMarkdown() {
+function applyTemplateDefaults(template) {
+  if (template === 'minimalist') {
+    document.getElementById('toggle-banner').checked = false;
+    document.getElementById('toggle-gif').checked = false;
+    document.getElementById('toggle-stats').checked = true;
+    document.getElementById('toggle-snake').checked = true;
+    document.getElementById('toggle-projects').checked = true;
+    document.getElementById('toggle-blog').checked = false;
+    document.getElementById('gif-config-group').style.display = 'none';
+  } else if (template === 'terminal') {
+    document.getElementById('toggle-banner').checked = false;
+    document.getElementById('toggle-gif').checked = true;
+    document.getElementById('toggle-stats').checked = true;
+    document.getElementById('toggle-snake').checked = true;
+    document.getElementById('toggle-projects').checked = true;
+    document.getElementById('toggle-blog').checked = false;
+    document.getElementById('gif-config-group').style.display = 'block';
+  } else if (template === 'fullstack') {
+    document.getElementById('toggle-banner').checked = true;
+    document.getElementById('toggle-gif').checked = false;
+    document.getElementById('toggle-stats').checked = true;
+    document.getElementById('toggle-snake').checked = true;
+    document.getElementById('toggle-projects').checked = true;
+    document.getElementById('toggle-blog').checked = true;
+    document.getElementById('gif-config-group').style.display = 'none';
+  } else {
+    // Ultimate
+    document.getElementById('toggle-banner').checked = true;
+    document.getElementById('toggle-gif').checked = true;
+    document.getElementById('toggle-stats').checked = true;
+    document.getElementById('toggle-snake').checked = true;
+    document.getElementById('toggle-projects').checked = true;
+    document.getElementById('toggle-blog').checked = true;
+    document.getElementById('gif-config-group').style.display = 'block';
+  }
+}
+
+function renderAll() {
   const username = document.getElementById('input-username').value.trim() || 'username';
   const name = document.getElementById('input-name').value.trim() || 'Your Name';
   const headline = document.getElementById('input-headline').value.trim() || 'Software Engineer';
@@ -130,8 +199,22 @@ function renderMarkdown() {
   const showBlog = document.getElementById('toggle-blog').checked;
 
   let md = '';
+  let html = '';
 
-  if (showBanner) {
+  if (currentTemplate === 'terminal') {
+    // Terminal CLI Style
+    md += `<div align="center">\n\n`;
+    md += `\`\`\`bash\n`;
+    md += `> whoami\n`;
+    md += `name: ${name}\n`;
+    md += `role: ${headline}\n`;
+    md += `website: ${website}\n`;
+    md += `status: "Building resilient systems & shipping open-source"\n`;
+    md += `\`\`\`\n\n`;
+    md += `</div>\n\n---\n\n`;
+
+    html += `<pre><code>&gt; whoami\nname: ${name}\nrole: ${headline}\nwebsite: ${website}\nstatus: "Building resilient systems & shipping open-source"</code></pre><hr/>`;
+  } else if (showBanner) {
     const bannerText = encodeURIComponent(`Hi, I'm ${name} 👋`);
     const bannerDesc = encodeURIComponent(`${headline}`);
     md += `<div align="center">\n`;
@@ -146,12 +229,25 @@ function renderMarkdown() {
     md += `    <a href="mailto:contact@${username}.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>\n`;
     md += `  </p>\n`;
     md += `</div>\n\n---\n\n`;
+
+    html += `<div style="text-align: center; margin-bottom: 1.5rem;">
+      <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,3,5&height=170&section=header&text=${bannerText}&fontSize=36&fontAlignY=38&desc=${bannerDesc}&descAlignY=58&descAlign=50&theme=dark" style="width: 100%; border-radius: 8px;" />
+      <div style="margin-top: 10px; display: flex; justify-content: center; gap: 8px;">
+        <img src="https://img.shields.io/badge/Website-2563EB?style=flat-square&logo=safari&logoColor=white" />
+        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" />
+        <img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" />
+      </div>
+    </div><hr/>`;
   }
 
   if (showGif && activeGifUrl) {
     md += `<div align="center">\n`;
     md += `  <img src="${activeGifUrl}" alt="Coding Animation" width="380" style="border-radius: 8px;" />\n`;
     md += `</div>\n\n---\n\n`;
+
+    html += `<div style="text-align: center; margin: 1.2rem 0;">
+      <img src="${activeGifUrl}" width="360" style="border-radius: 8px;" />
+    </div><hr/>`;
   }
 
   md += `### 👨‍💻 About Me\n\n`;
@@ -159,12 +255,24 @@ function renderMarkdown() {
   md += `- 🌱 **Continuous Learning:** Exploring scalable distributed architectures & modern tooling\n`;
   md += `- 🌐 **Portfolio & Website:** [${website}](${website})\n\n---\n\n`;
 
+  html += `<h3>👨‍💻 About Me</h3>
+  <ul>
+    <li><strong>🔭 Focus:</strong> ${headline}</li>
+    <li><strong>🌱 Continuous Learning:</strong> Exploring scalable distributed architectures & modern tooling</li>
+    <li><strong>🌐 Portfolio & Website:</strong> <a href="${website}" target="_blank" style="color: #58a6ff;">${website}</a></li>
+  </ul><hr/>`;
+
   if (selectedSkills.length > 0) {
     const skillList = selectedSkills.join(',');
     md += `### 🛠️ Tech Stack & Toolkit\n\n`;
     md += `<p align="left">\n`;
     md += `  <img src="https://skillicons.dev/icons?i=${skillList}" alt="Tech Stack" />\n`;
     md += `</p>\n\n---\n\n`;
+
+    html += `<h3>🛠️ Tech Stack & Toolkit</h3>
+    <div style="margin: 0.8rem 0;">
+      <img src="https://skillicons.dev/icons?i=${skillList}" alt="Tech Stack" />
+    </div><hr/>`;
   }
 
   if (showProjects) {
@@ -173,6 +281,17 @@ function renderMarkdown() {
     md += `| :--- | :--- | :--- | :---: |\n`;
     md += `| **⚡ Project Alpha** | High-performance core service engine. | \`Rust\` \`PostgreSQL\` | [Repo](https://github.com/${username}) |\n`;
     md += `| **🛡️ Dev Engine** | Modern automated workflow utility. | \`TypeScript\` \`Docker\` | [Repo](https://github.com/${username}) |\n\n---\n\n`;
+
+    html += `<h3>🚀 Featured Projects</h3>
+    <table>
+      <thead>
+        <tr><th>Project</th><th>Description</th><th>Tech Stack</th><th>Links</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>⚡ Project Alpha</strong></td><td>High-performance core service engine.</td><td><code>Rust</code> <code>PostgreSQL</code></td><td><a href="https://github.com/${username}" style="color:#58a6ff;">Repo →</a></td></tr>
+        <tr><td><strong>🛡️ Dev Engine</strong></td><td>Modern automated workflow utility.</td><td><code>TypeScript</code> <code>Docker</code></td><td><a href="https://github.com/${username}" style="color:#58a6ff;">Repo →</a></td></tr>
+      </tbody>
+    </table><hr/>`;
   }
 
   if (showStats) {
@@ -195,6 +314,15 @@ function renderMarkdown() {
     md += `    <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&hide_border=true" alt="Top Languages" />\n`;
     md += `  </picture>\n`;
     md += `</div>\n\n---\n\n`;
+
+    html += `<h3>📊 GitHub Analytics</h3>
+    <div style="text-align: center; margin: 1rem 0;">
+      <img src="https://streak-stats.demolab.com/?user=${username}&theme=tokyonight&hide_border=true" style="margin-bottom: 12px; max-width: 100%;" /><br/>
+      <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+        <img src="https://github-readme-stats-eight-theta.vercel.app/api?username=${username}&show_icons=true&theme=tokyonight&hide_border=true" style="max-width: 48%; min-width: 280px;" />
+        <img src="https://github-readme-stats-eight-theta.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=tokyonight&hide_border=true" style="max-width: 48%; min-width: 280px;" />
+      </div>
+    </div><hr/>`;
   }
 
   if (showSnake) {
@@ -206,6 +334,11 @@ function renderMarkdown() {
     md += `    <img alt="Snake Game" src="https://raw.githubusercontent.com/${username}/${username}/output/github-snake.svg" width="100%" />\n`;
     md += `  </picture>\n`;
     md += `</div>\n\n`;
+
+    html += `<h3>🐍 Contribution Graph</h3>
+    <div style="text-align: center; margin: 1rem 0;">
+      <img src="https://raw.githubusercontent.com/${username}/${username}/output/github-snake-dark.svg" alt="Snake Animation" style="width: 100%; border-radius: 6px;" onerror="this.src='https://raw.githubusercontent.com/arsyadal/arsyadal/output/github-snake-dark.svg'" />
+    </div>`;
   }
 
   if (showBlog) {
@@ -213,13 +346,18 @@ function renderMarkdown() {
     md += `<!-- BLOG-POST-LIST:START -->\n`;
     md += `<!-- Automatically populated via GitHub Actions -->\n`;
     md += `<!-- BLOG-POST-LIST:END -->\n\n`;
+
+    html += `<hr/><h3>✍️ Recent Blog Posts</h3><p><em>Automatically synced via GitHub Actions RSS.</em></p>`;
   }
 
   md += `<div align="center">\n`;
   md += `  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%" alt="Footer" />\n`;
   md += `</div>\n`;
 
+  html += `<div style="text-align: center; margin-top: 1.5rem;"><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=80&section=footer" style="width: 100%;" /></div>`;
+
   document.getElementById('output-markdown').innerText = md;
+  document.getElementById('output-visual').innerHTML = html;
 }
 
 document.addEventListener('DOMContentLoaded', init);
