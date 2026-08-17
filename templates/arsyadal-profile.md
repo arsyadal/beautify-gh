@@ -138,13 +138,13 @@
 
 ---
 
-### ✍️ Recent Articles & Activity
+### ✍️ Technical Writings & Engineering Notes
 
-<!-- BLOG-POST-LIST:START -->
-- [Building High-Performance System Utilities in Rust](https://arsyad.site)
-- [Context-Aware Linting for Scalable Codebases](https://arsyad.site)
-- [Zero-Downtime Deployment Strategies with Modern CI/CD](https://arsyad.site)
-<!-- BLOG-POST-LIST:END -->
+- 🦀 **[ContextLint: AI Context Linting & Compression](https://github.com/arsyadal/contextlint)** — *Scanning agent context files to eliminate duplication and noisy instructions.*
+- 🦀 **[DB-Eye: Terminal UI Database Browser](https://github.com/arsyadal/db-eye)** — *Fast schema & data exploration for SQLite, PostgreSQL, and MySQL directly in your CLI.*
+- 🎛️ **[QuotaTray: Local-First AI Quota Monitor](https://github.com/arsyadal/quotatray)** — *Monitoring AI provider limits and usage windows in a compact desktop tray.*
+- 🚀 **[Cadsploy: Docker-First Automated Deployment Platform](https://github.com/arsyadal/cadsploy)** — *Self-hosted zero-downtime deployment pipelines with Next.js & Fastify.*
+- 🌐 *Essays & technical deep-dives coming soon on [arsyad.site](https://arsyad.site).*
 
 <br />
 
