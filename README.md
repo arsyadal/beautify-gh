@@ -173,6 +173,17 @@ Semua workflow telah disesuaikan dengan standar keamanan GitHub Actions terkini 
 
 ---
 
+## 💡 The Philosophy: 30 Minutes Every Day for Your Craft
+
+> *"We are what we repeatedly do. Excellence, then, is not an act, but a habit."* — Will Durant
+
+<div align="center">
+  <img src="assets/craftsmanship-365.webp" alt="365 Days of Craft Contribution Graph" width="90%" />
+  <p><i>Kekuatan dari 30 menit koding konsisten setiap hari di luar jam kerja (The Clean Coder ethos).</i></p>
+</div>
+
+---
+
 ## 📚 Panduan & Best Practices
 
 * 🎯 [Modern Best Practices & Menghindari Badge Fatigue](docs/best-practices.md)
