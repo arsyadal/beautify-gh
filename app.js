@@ -22,11 +22,14 @@ const availableSkills = [
 ];
 
 const gifPresets = [
-  { id: 'lofi', label: 'Lofi Coding', url: 'https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif' },
-  { id: 'terminal', label: 'Pixel Terminal', url: 'https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif' },
-  { id: 'octocat', label: 'Octocat Typing', url: 'https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif' },
-  { id: 'synthwave', label: 'Synthwave Dev', url: 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' },
-  { id: 'matrix', label: 'Cyber Matrix', url: 'https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif' }
+  { id: 'lofi', label: '🌸 Lofi Girl', url: 'https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif' },
+  { id: 'ramen', label: '🍜 Anime Ramen', url: 'https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif' },
+  { id: 'tokyo', label: '🌃 Tokyo Sunset', url: 'https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif' },
+  { id: 'animecat', label: '🐱 Cat on Laptop', url: 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif' },
+  { id: 'hacker', label: '⚔️ Anime Typing', url: 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' },
+  { id: 'terminal', label: '💻 Pixel Terminal', url: 'https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif' },
+  { id: 'octocat', label: '🐙 Octocat Typing', url: 'https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif' },
+  { id: 'matrix', label: '⚡ Cyber Matrix', url: 'https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif' }
 ];
 
 let currentTemplate = 'ultimate';
@@ -149,7 +152,16 @@ function init() {
 }
 
 function applyTemplateDefaults(template) {
-  if (template === 'minimalist') {
+  if (template === 'anime') {
+    document.getElementById('toggle-banner').checked = true;
+    document.getElementById('toggle-gif').checked = true;
+    document.getElementById('toggle-stats').checked = true;
+    document.getElementById('toggle-snake').checked = true;
+    document.getElementById('toggle-projects').checked = true;
+    document.getElementById('toggle-blog').checked = false;
+    document.getElementById('gif-config-group').style.display = 'block';
+    activeGifUrl = gifPresets[0].url; // Lofi Girl
+  } else if (template === 'minimalist') {
     document.getElementById('toggle-banner').checked = false;
     document.getElementById('toggle-gif').checked = false;
     document.getElementById('toggle-stats').checked = true;
@@ -201,7 +213,45 @@ function renderAll() {
   let md = '';
   let html = '';
 
-  if (currentTemplate === 'terminal') {
+  if (currentTemplate === 'anime') {
+    // Sakura Anime Aesthetic
+    const bannerText = encodeURIComponent(`Konnichiwa, I'm ${name} 🌸`);
+    const bannerDesc = encodeURIComponent(`${headline} • Lofi & Anime Enthusiast`);
+
+    md += `<div align="center">\n`;
+    md += `  <picture>\n`;
+    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=20,22,25&height=190&section=header&text=${bannerText}&fontSize=36&fontAlignY=38&desc=${bannerDesc}&descAlignY=58&descAlign=50&theme=dark" />\n`;
+    md += `    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=25,26,27&height=190&section=header&text=${bannerText}&fontSize=36&fontAlignY=38&desc=${bannerDesc}&descAlignY=58&descAlign=50&theme=light" />\n`;
+    md += `    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=190&section=header&text=${bannerText}&fontSize=36" alt="Sakura Header" width="100%" />\n`;
+    md += `  </picture>\n\n`;
+    md += `  <p align="center">\n`;
+    md += `    <a href="${website}"><img src="https://img.shields.io/badge/Portfolio-FF69B4?style=flat-square&logo=safari&logoColor=white" alt="Portfolio" /></a>\n`;
+    md += `    <a href="https://linkedin.com/in/${username}"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" alt="LinkedIn" /></a>\n`;
+    md += `    <a href="mailto:contact@${username}.com"><img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" alt="Email" /></a>\n`;
+    md += `  </p>\n\n`;
+
+    if (showGif && activeGifUrl) {
+      md += `  <p align="center">\n`;
+      md += `    <img src="${activeGifUrl}" alt="Anime Lofi Animation" width="390" style="border-radius: 12px;" />\n`;
+      md += `  </p>\n\n`;
+      md += `  <p align="center"><i>「 どんなに深い夜でも、いつかは必ず明ける。」 — No matter how deep the night, it always turns to day.</i></p>\n`;
+    }
+
+    md += `</div>\n\n---\n\n`;
+
+    html += `<div style="text-align: center; margin-bottom: 1.2rem;">
+      <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=20,22,25&height=170&section=header&text=${bannerText}&fontSize=34&fontAlignY=38&desc=${bannerDesc}&descAlignY=58&descAlign=50&theme=dark" style="width: 100%; border-radius: 8px;" />
+      <div style="margin-top: 10px; display: flex; justify-content: center; gap: 8px;">
+        <img src="https://img.shields.io/badge/Portfolio-FF69B4?style=flat-square&logo=safari&logoColor=white" />
+        <img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=flat-square&logo=linkedin&logoColor=white" />
+        <img src="https://img.shields.io/badge/Email-EA4335?style=flat-square&logo=gmail&logoColor=white" />
+      </div>`;
+    if (showGif && activeGifUrl) {
+      html += `<div style="margin: 1rem 0;"><img src="${activeGifUrl}" width="360" style="border-radius: 10px;" /><br/><small style="color:#ffb6c1; font-style: italic;">「 どんなに深い夜でも、いつかは必ず明ける。」</small></div>`;
+    }
+    html += `</div><hr/>`;
+
+  } else if (currentTemplate === 'terminal') {
     // Terminal CLI Style
     md += `<div align="center">\n\n`;
     md += `\`\`\`bash\n`;
@@ -240,7 +290,7 @@ function renderAll() {
     </div><hr/>`;
   }
 
-  if (showGif && activeGifUrl) {
+  if (currentTemplate !== 'anime' && showGif && activeGifUrl) {
     md += `<div align="center">\n`;
     md += `  <img src="${activeGifUrl}" alt="Coding Animation" width="380" style="border-radius: 8px;" />\n`;
     md += `</div>\n\n---\n\n`;
@@ -250,12 +300,12 @@ function renderAll() {
     </div><hr/>`;
   }
 
-  md += `### 👨‍💻 About Me\n\n`;
+  md += `### ${currentTemplate === 'anime' ? '🌸' : '👨‍💻'} About Me\n\n`;
   md += `- 🔭 **Focus:** ${headline}\n`;
   md += `- 🌱 **Continuous Learning:** Exploring scalable distributed architectures & modern tooling\n`;
   md += `- 🌐 **Portfolio & Website:** [${website}](${website})\n\n---\n\n`;
 
-  html += `<h3>👨‍💻 About Me</h3>
+  html += `<h3>${currentTemplate === 'anime' ? '🌸' : '👨‍💻'} About Me</h3>
   <ul>
     <li><strong>🔭 Focus:</strong> ${headline}</li>
     <li><strong>🌱 Continuous Learning:</strong> Exploring scalable distributed architectures & modern tooling</li>
@@ -298,8 +348,8 @@ function renderAll() {
     md += `### 📊 GitHub Analytics\n\n`;
     md += `<div align="center">\n`;
     md += `  <picture>\n`;
-    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=${username}&theme=tokyonight&hide_border=true" />\n`;
-    md += `    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=${username}&theme=default&hide_border=true" />\n`;
+    md += `    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=${username}&theme=${currentTemplate === 'anime' ? 'tokyonight' : 'tokyonight'}&hide_border=true" />\n`;
+    md += `    <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=${username}&theme=${currentTemplate === 'anime' ? 'rose_pine_dawn' : 'default'}&hide_border=true" />\n`;
     md += `    <img src="https://streak-stats.demolab.com/?user=${username}&hide_border=true" alt="Streak Stats" />\n`;
     md += `  </picture>\n`;
     md += `  <br/><br/>\n`;
@@ -350,11 +400,12 @@ function renderAll() {
     html += `<hr/><h3>✍️ Recent Blog Posts</h3><p><em>Automatically synced via GitHub Actions RSS.</em></p>`;
   }
 
+  const footerCustomColors = currentTemplate === 'anime' ? '&customColorList=20,22,25' : '';
   md += `<div align="center">\n`;
-  md += `  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=100&section=footer" width="100%" alt="Footer" />\n`;
+  md += `  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient${footerCustomColors}&height=100&section=footer" width="100%" alt="Footer" />\n`;
   md += `</div>\n`;
 
-  html += `<div style="text-align: center; margin-top: 1.5rem;"><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=80&section=footer" style="width: 100%;" /></div>`;
+  html += `<div style="text-align: center; margin-top: 1.5rem;"><img src="https://capsule-render.vercel.app/api?type=waving&color=gradient${footerCustomColors}&height=80&section=footer" style="width: 100%;" /></div>`;
 
   document.getElementById('output-markdown').innerText = md;
   document.getElementById('output-visual').innerHTML = html;

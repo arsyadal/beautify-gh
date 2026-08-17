@@ -165,10 +165,13 @@ Add dynamic personality to your header using lightweight, high-framerate GIFs:
 
 | Style / Preset | Preview & Theme | Markdown Code |
 | :--- | :--- | :--- |
-| **☕ Lofi Coding** | Cozy anime / coffee work station | `<img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="380" />` |
+| **🌸 Lofi Study Girl** | Cozy anime study room & synthwave beats | `<img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="380" />` |
+| **🍜 Anime Ramen** | Aesthetic Japanese ramen & late night coding | `<img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="380" />` |
+| **🌃 Tokyo Sunset** | Cyberpunk neon dusk over Shinjuku | `<img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="380" />` |
+| **🐱 Cat on Laptop** | Cute anime kitten resting on keyboard | `<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="380" />` |
+| **⚔️ Anime Hacker** | Fast typing cyber terminal animation | `<img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" width="380" />` |
 | **💻 Pixel Terminal** | Retro 8-bit hacker prompt | `<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="380" />` |
-| **🐱 Octocat Typing** | Official animated GitHub mascot | `<img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="380" />` |
-| **👾 Synthwave Dev** | Neon outrun & cyberpunk sunset | `<img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" width="380" />` |
+| **🐙 Octocat Typing** | Official animated GitHub mascot | `<img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="380" />` |
 | **⚡ Cyber Matrix** | Falling green binary rain | `<img src="https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif" width="380" />` |
 
 *💡 Tip: You can paste any custom GIF URL from Giphy, Tenor, or your repository assets directly into our Web Generator.*
@@ -180,6 +183,7 @@ Add dynamic personality to your header using lightweight, high-framerate GIFs:
 | Template Name | Design Aesthetic | Template File |
 | :--- | :--- | :--- |
 | **🌟 Ultimate All-in-One** | **Combines all 6 features** + Streak Stats + Spotify Status. | [`templates/ultimate-profile.md`](templates/ultimate-profile.md) |
+| **🌸 Anime / Lofi Dev** | Sakura pastel gradients, anime quotes, lofi GIF header & Rose Pine theme. | [`templates/anime-lofi.md`](templates/anime-lofi.md) |
 | **✨ Modern Minimalist** | Clean typography, dark/light adaptive cards, high signal-to-noise ratio. | [`templates/modern-minimalist.md`](templates/modern-minimalist.md) |
 | **💻 Full-Stack Engineer** | Structured case study layouts, performance metrics, and categorized stack. | [`templates/fullstack-engineer.md`](templates/fullstack-engineer.md) |
 | **📟 Terminal / Retro CLI** | Linux terminal prompts, Neovim aesthetics, and ASCII art headers. | [`templates/terminal-dev.md`](templates/terminal-dev.md) |
