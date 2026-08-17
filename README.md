@@ -165,16 +165,16 @@ Add dynamic personality to your header using lightweight, high-framerate GIFs:
 
 | Style / Preset | Preview & Theme | Markdown Code |
 | :--- | :--- | :--- |
-| **🌸 Lofi Study Girl** | Cozy anime study room & synthwave beats | `<img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="380" />` |
+| **🌸 Lofi Study Girl** | Cozy Japanese anime study room & chill beats | `<img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="380" />` |
+| **🎧 Music Anime Girl** | Aesthetic anime girl enjoying music in headphones | `<img src="https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif" width="380" />` |
+| **🌃 City Lights Girl** | Anime girl looking at glowing Tokyo cityscape | `<img src="https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif" width="380" />` |
+| **🪟 Rainy Window Girl** | Melancholic rainy day anime window aesthetic | `<img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" width="380" />` |
 | **🍜 Anime Ramen** | Aesthetic Japanese ramen & late night coding | `<img src="https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif" width="380" />` |
-| **🌃 Tokyo Sunset** | Cyberpunk neon dusk over Shinjuku | `<img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="380" />` |
-| **🐱 Cat on Laptop** | Cute anime kitten resting on keyboard | `<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="380" />` |
-| **⚔️ Anime Hacker** | Fast typing cyber terminal animation | `<img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" width="380" />` |
-| **💻 Pixel Terminal** | Retro 8-bit hacker prompt | `<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="380" />` |
-| **🐙 Octocat Typing** | Official animated GitHub mascot | `<img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="380" />` |
-| **⚡ Cyber Matrix** | Falling green binary rain | `<img src="https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif" width="380" />` |
+| **🌆 Tokyo Sunset Girl** | Cyberpunk neon dusk over Shinjuku | `<img src="https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif" width="380" />` |
+| **⚔️ Cyber Anime Girl** | Fast typing cyber terminal animation | `<img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" width="380" />` |
+| **🐱 Cat & Laptop** | Cute anime kitten resting on keyboard | `<img src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif" width="380" />` |
 
-*💡 Tip: You can paste any custom GIF URL from Giphy, Tenor, or your repository assets directly into our Web Generator.*
+*💡 Tip: You can paste any custom animated girl GIF URL from Giphy directly into our Web Generator.*
 
 ---
 

@@ -22,14 +22,14 @@ const availableSkills = [
 ];
 
 const gifPresets = [
-  { id: 'lofi', label: '🌸 Lofi Girl', url: 'https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif' },
-  { id: 'ramen', label: '🍜 Anime Ramen', url: 'https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif' },
-  { id: 'tokyo', label: '🌃 Tokyo Sunset', url: 'https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif' },
-  { id: 'animecat', label: '🐱 Cat on Laptop', url: 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif' },
-  { id: 'hacker', label: '⚔️ Anime Typing', url: 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' },
-  { id: 'terminal', label: '💻 Pixel Terminal', url: 'https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif' },
-  { id: 'octocat', label: '🐙 Octocat Typing', url: 'https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif' },
-  { id: 'matrix', label: '⚡ Cyber Matrix', url: 'https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif' }
+  { id: 'lofigirl', label: '🌸 Lofi Study Girl', url: 'https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif' },
+  { id: 'headphones', label: '🎧 Music Anime Girl', url: 'https://media.giphy.com/media/26BRzozg4TCBXv6QU/giphy.gif' },
+  { id: 'citylights', label: '🌃 City Lights Girl', url: 'https://media.giphy.com/media/3oKIPnAiaMCws8nOsE/giphy.gif' },
+  { id: 'window', label: '🪟 Rainy Window Girl', url: 'https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif' },
+  { id: 'ramen', label: '🍜 Ramen Anime Girl', url: 'https://media.giphy.com/media/M9gbBd9nbDrOTu1Mqx/giphy.gif' },
+  { id: 'sunset', label: '🌆 Tokyo Sunset Girl', url: 'https://media.giphy.com/media/xT9IgzoKnwFNmISR8I/giphy.gif' },
+  { id: 'hacker', label: '⚔️ Cyber Anime Girl', url: 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' },
+  { id: 'animecat', label: '🐱 Cat & Laptop', url: 'https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif' }
 ];
 
 let currentTemplate = 'ultimate';
