@@ -142,11 +142,25 @@ function init() {
     const code = document.getElementById('output-markdown').innerText;
     navigator.clipboard.writeText(code).then(() => {
       const copyText = document.getElementById('copy-text');
-      copyText.innerText = '✅ Copied to Clipboard!';
+      copyText.innerText = '✅ Copied!';
       setTimeout(() => {
         copyText.innerText = '📋 Copy Markdown';
       }, 2000);
     });
+  });
+
+  // Download button
+  document.getElementById('btn-download').addEventListener('click', () => {
+    const code = document.getElementById('output-markdown').innerText;
+    const blob = new Blob([code], { type: 'text/markdown;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'README.md';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
   });
 
   renderAll();
