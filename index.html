@@ -71,6 +71,10 @@
               <span>Animated Header Banner</span>
             </label>
             <label class="checkbox-label">
+              <input type="checkbox" id="toggle-gif" checked />
+              <span>Aesthetic Developer GIF</span>
+            </label>
+            <label class="checkbox-label">
               <input type="checkbox" id="toggle-stats" checked />
               <span>Adaptive GitHub Stats Cards</span>
             </label>
@@ -87,6 +91,14 @@
               <span>Dynamic Blog RSS Section</span>
             </label>
           </div>
+        </div>
+
+        <div class="form-group" id="gif-config-group">
+          <label>Choose GIF Preset or Enter Custom URL</label>
+          <div class="gif-presets" id="gif-presets">
+            <!-- Dynamically populated GIF presets -->
+          </div>
+          <input type="text" id="input-custom-gif" class="mt-2" placeholder="Or paste your custom GIF URL here..." />
         </div>
       </div>
 

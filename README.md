@@ -153,6 +153,21 @@ Automatically stream your latest articles from Medium, Dev.to, Hashnode, Substac
 
 ---
 
+### 7. 🎬 Aesthetic Developer GIFs & Animations
+Add dynamic personality to your header using lightweight, high-framerate GIFs:
+
+| Style / Preset | Preview & Theme | Markdown Code |
+| :--- | :--- | :--- |
+| **☕ Lofi Coding** | Cozy anime / coffee work station | `<img src="https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif" width="380" />` |
+| **💻 Pixel Terminal** | Retro 8-bit hacker prompt | `<img src="https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif" width="380" />` |
+| **🐱 Octocat Typing** | Official animated GitHub mascot | `<img src="https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif" width="380" />` |
+| **👾 Synthwave Dev** | Neon outrun & cyberpunk sunset | `<img src="https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif" width="380" />` |
+| **⚡ Cyber Matrix** | Falling green binary rain | `<img src="https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif" width="380" />` |
+
+*💡 Tip: You can paste any custom GIF URL from Giphy, Tenor, or your repository assets directly into our Web Generator.*
+
+---
+
 ## 🎨 Curated Profile Templates
 
 | Template Name | Design Aesthetic | Template File |

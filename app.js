@@ -21,12 +21,21 @@ const availableSkills = [
   { id: 'linux', label: 'Linux' }
 ];
 
+const gifPresets = [
+  { id: 'lofi', label: 'Lofi Coding', url: 'https://media.giphy.com/media/LmNwrBhejkK9EFP504/giphy.gif' },
+  { id: 'terminal', label: 'Pixel Terminal', url: 'https://media.giphy.com/media/qgQUggAC3Pfv687qPC/giphy.gif' },
+  { id: 'octocat', label: 'Octocat Typing', url: 'https://media.giphy.com/media/du3J3cXyzhj75IOgvA/giphy.gif' },
+  { id: 'synthwave', label: 'Synthwave Dev', url: 'https://media.giphy.com/media/L1R1tvI9svkIWwpVYr/giphy.gif' },
+  { id: 'matrix', label: 'Cyber Matrix', url: 'https://media.giphy.com/media/ule4vhcY1xEKQ/giphy.gif' }
+];
+
 let selectedSkills = ['rust', 'ts', 'react', 'nextjs', 'postgres', 'docker', 'linux'];
+let activeGifUrl = gifPresets[0].url;
 
 function init() {
-  const container = document.getElementById('skills-selector');
-  container.innerHTML = '';
-
+  // Populate skills
+  const skillsContainer = document.getElementById('skills-selector');
+  skillsContainer.innerHTML = '';
   availableSkills.forEach(skill => {
     const chip = document.createElement('div');
     chip.className = `skill-chip ${selectedSkills.includes(skill.id) ? 'active' : ''}`;
@@ -40,7 +49,40 @@ function init() {
       chip.classList.toggle('active');
       renderMarkdown();
     };
-    container.appendChild(chip);
+    skillsContainer.appendChild(chip);
+  });
+
+  // Populate GIF Presets
+  const gifContainer = document.getElementById('gif-presets');
+  gifContainer.innerHTML = '';
+  gifPresets.forEach(preset => {
+    const card = document.createElement('div');
+    card.className = `gif-preset-card ${activeGifUrl === preset.url ? 'active' : ''}`;
+    card.innerHTML = `
+      <img src="${preset.url}" alt="${preset.label}" loading="lazy" />
+      <span class="gif-preset-label">${preset.label}</span>
+    `;
+    card.onclick = () => {
+      document.querySelectorAll('.gif-preset-card').forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+      activeGifUrl = preset.url;
+      document.getElementById('input-custom-gif').value = '';
+      renderMarkdown();
+    };
+    gifContainer.appendChild(card);
+  });
+
+  // Custom GIF input listener
+  document.getElementById('input-custom-gif').addEventListener('input', (e) => {
+    const val = e.target.value.trim();
+    if (val) {
+      document.querySelectorAll('.gif-preset-card').forEach(c => c.classList.remove('active'));
+      activeGifUrl = val;
+    } else {
+      activeGifUrl = gifPresets[0].url;
+      document.querySelector('.gif-preset-card')?.classList.add('active');
+    }
+    renderMarkdown();
   });
 
   // Attach input listeners
@@ -49,8 +91,14 @@ function init() {
   });
 
   // Attach checkbox listeners
-  ['toggle-banner', 'toggle-stats', 'toggle-snake', 'toggle-projects', 'toggle-blog'].forEach(id => {
-    document.getElementById(id).addEventListener('change', renderMarkdown);
+  ['toggle-banner', 'toggle-gif', 'toggle-stats', 'toggle-snake', 'toggle-projects', 'toggle-blog'].forEach(id => {
+    document.getElementById(id).addEventListener('change', () => {
+      const gifGroup = document.getElementById('gif-config-group');
+      if (id === 'toggle-gif') {
+        gifGroup.style.display = document.getElementById('toggle-gif').checked ? 'block' : 'none';
+      }
+      renderMarkdown();
+    });
   });
 
   // Copy button
@@ -75,6 +123,7 @@ function renderMarkdown() {
   const website = document.getElementById('input-website').value.trim() || 'https://example.com';
 
   const showBanner = document.getElementById('toggle-banner').checked;
+  const showGif = document.getElementById('toggle-gif').checked;
   const showStats = document.getElementById('toggle-stats').checked;
   const showSnake = document.getElementById('toggle-snake').checked;
   const showProjects = document.getElementById('toggle-projects').checked;
@@ -89,7 +138,7 @@ function renderMarkdown() {
     md += `  <picture>\n`;
     md += `    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=2,3,5&height=190&section=header&text=${bannerText}&fontSize=38&fontAlignY=38&desc=${bannerDesc}&descAlignY=58&descAlign=50&theme=dark" />\n`;
     md += `    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=24,28,30&height=190&section=header&text=${bannerText}&fontSize=38&fontAlignY=38&desc=${bannerDesc}&descAlignY=58&descAlign=50&theme=light" />\n`;
-    md += `    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=190&section=header&text=${bannerText}&fontSize=38" alt="Banner" width="100%" />\n`;
+    md += `    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=190&section=header&text=${bannerText}&fontSize=38" alt="Header Banner" width="100%" />\n`;
     md += `  </picture>\n\n`;
     md += `  <p align="center">\n`;
     md += `    <a href="${website}"><img src="https://img.shields.io/badge/Website-2563EB?style=flat-square&logo=safari&logoColor=white" alt="Website" /></a>\n`;
@@ -99,10 +148,16 @@ function renderMarkdown() {
     md += `</div>\n\n---\n\n`;
   }
 
+  if (showGif && activeGifUrl) {
+    md += `<div align="center">\n`;
+    md += `  <img src="${activeGifUrl}" alt="Coding Animation" width="380" style="border-radius: 8px;" />\n`;
+    md += `</div>\n\n---\n\n`;
+  }
+
   md += `### 👨‍💻 About Me\n\n`;
-  md += `- 🔭 **Currently focused on:** ${headline}\n`;
-  md += `- 🌱 **Continuous Learning:** Scalable architectures & modern open-source tooling\n`;
-  md += `- 🌐 **Portfolio & Blog:** [${website}](${website})\n\n---\n\n`;
+  md += `- 🔭 **Focus:** ${headline}\n`;
+  md += `- 🌱 **Continuous Learning:** Exploring scalable distributed architectures & modern tooling\n`;
+  md += `- 🌐 **Portfolio & Website:** [${website}](${website})\n\n---\n\n`;
 
   if (selectedSkills.length > 0) {
     const skillList = selectedSkills.join(',');
@@ -126,12 +181,12 @@ function renderMarkdown() {
     md += `  <picture>\n`;
     md += `    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" />\n`;
     md += `    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=default&hide_border=true&count_private=true" />\n`;
-    md += `    <img src="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&hide_border=true" alt="Stats" />\n`;
+    md += `    <img src="https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&hide_border=true" alt="GitHub Stats" />\n`;
     md += `  </picture>\n`;
     md += `  <picture>\n`;
     md += `    <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=tokyonight&hide_border=true" />\n`;
     md += `    <source media="(prefers-color-scheme: light)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=default&hide_border=true" />\n`;
-    md += `    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&hide_border=true" alt="Languages" />\n`;
+    md += `    <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&hide_border=true" alt="Top Languages" />\n`;
     md += `  </picture>\n`;
     md += `</div>\n\n---\n\n`;
   }
