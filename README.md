@@ -153,8 +153,11 @@ Automatically stream your latest articles from Medium, Dev.to, Hashnode, Substac
 ```markdown
 ### ✍️ Recent Blog Posts
 <!-- BLOG-POST-LIST:START -->
-<!-- Automatically updated via GitHub Actions -->
-<!-- BLOG-POST-LIST:END -->
+ - [Speed Up Your CI/CD: ARM 64 Runners for GitHub Actions](https://dev.to/github/speed-up-your-cicd-arm-64-runners-for-github-actions-21g8) (May 15, 2025)
+ - [Showcase your open source project at SCALE 🐧 Pasadena, CA · March 6-9, 2025](https://dev.to/github/showcase-your-open-source-project-at-scale-pasadena-ca-march-6-9-2025-12kn) (Jan 24, 2025)
+ - [Release Radar · September 2024: Major updates from the open source community](https://dev.to/github/release-radar-september-2024-major-updates-from-the-open-source-community-30ki) (Oct 5, 2024)
+ - [A checklist and guide to get your repository collaboration-ready](https://dev.to/github/a-checklist-and-guide-to-get-your-repository-collaboration-ready-3eld) (Sep 18, 2024)
+ - [Provide context to GitHub Copilot Chat](https://dev.to/github/provide-context-to-github-copilot-chat-24op) (Sep 10, 2024)<!-- BLOG-POST-LIST:END -->
 ```
 *Synced automatically via [`.github/workflows/blog-post-sync.yml`](.github/workflows/blog-post-sync.yml).*
 
